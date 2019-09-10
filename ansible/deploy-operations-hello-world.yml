@@ -1,0 +1,13 @@
+---
+- name: "Deploy <Operations Hello World> to the GCP VM."
+  hosts: upfeat.ibiscybernetics.com
+  remote_user: rbisewski
+
+  tasks:
+
+    - name: "git clone repo"
+      git:
+          repo: https://github.com/rbisewski/devops_practice_upfeat
+          version: master
+          dest: /git/devops_practice_upfeat
+          accept_hostkey: yes
