@@ -716,6 +716,15 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@journeyapps/sqlcipher@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@journeyapps/sqlcipher/-/sqlcipher-4.0.0.tgz#ad7683d145af40e2d0ec05bac7ec9ce752a578a4"
+  integrity sha512-tF9mjUFqqB40N8OsNa0CO6UTHptrHj8wUcpU463xJE9YLOyPs+RkXkCAWll4kHRzHWrZDnGEEKhJll3RxJycww==
+  dependencies:
+    nan "^2.12.1"
+    node-pre-gyp "^0.11.0"
+    request "^2.87.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

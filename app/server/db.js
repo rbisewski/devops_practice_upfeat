@@ -1,9 +1,10 @@
 "use strict";
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('@journeyapps/sqlcipher').verbose();
 
 class Db {
     constructor(file) {
         this.db = new sqlite3.Database(file);
+        this.db.run("PRAGMA key = \"x'77916DDD37EA00AAE49BF86097E73BD347D7C032D5089F949D463A2690525541'\"");
         this.createTable()
     }
 
@@ -18,6 +19,7 @@ class Db {
     }
 
     selectByEmail(email, callback) {
+        this.db.run("PRAGMA key = \"x'77916DDD37EA00AAE49BF86097E73BD347D7C032D5089F949D463A2690525541'\"");
         return this.db.get(
             `SELECT * FROM userAuth WHERE email = ?`,
             [email], function (err, row) {
@@ -26,6 +28,7 @@ class Db {
     }
 
     insert(user, callback) {
+        this.db.run("PRAGMA key = \"x'77916DDD37EA00AAE49BF86097E73BD347D7C032D5089F949D463A2690525541'\"");
         return this.db.run(
             'INSERT INTO userAuth (name,email,password) VALUES (?,?,?)',
             user, (err) => {
