@@ -8,4 +8,6 @@ RUN  mkdir /app
 ADD  . /app/
 RUN  cd /app/ && yarn
 RUN  cd /app/ && yarn build
+RUN rm -rf /var/www/html/
+RUN ln -s /app/dist /var/www/html
 ENTRYPOINT ["/bin/bash","/app/init.sh"]
