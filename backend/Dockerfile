@@ -6,8 +6,6 @@ RUN  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/source
 RUN  apt update && apt install -y nodejs yarn
 RUN  mkdir /app
 ADD  . /app/
-RUN  cd /app/ && yarn
-RUN  cd /app/ && yarn build
 RUN  rm -rf /usr/share/nginx/html
-RUN  ln -s /app/build /usr/share/nginx/html
-ENTRYPOINT nginx -g "daemon off;"
+RUN  cd /app/ && yarn
+ENTRYPOINT cd /app/ && yarn start
