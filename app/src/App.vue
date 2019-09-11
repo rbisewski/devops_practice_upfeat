@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>
-      <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
+      <span v-if="isLoggedIn"> | <a id="logout" @click="logout">Logout</a></span>
       <span v-else> |
         <router-link to="/register">Register</router-link> |
         <router-link to="/login">Login</router-link>
@@ -49,5 +49,9 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+#logout {
+  cursor: pointer;
+  text-decoration: underline;
 }
 </style>
