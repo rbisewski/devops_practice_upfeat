@@ -6,3 +6,5 @@ services:
       - "3000:3000"
       - "8080:80"
     privileged: false
+    volumes:
+      - /database:/app/database

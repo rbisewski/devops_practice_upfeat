@@ -5,6 +5,20 @@
 
   tasks:
 
+    - name: "make directory for cloned git repos"
+      file:
+          path: /git
+          state: directory
+      become: yes
+      become_method: sudo
+
+    - name: "make directory for user database"
+      file:
+          path: /database
+          state: directory
+      become: yes
+      become_method: sudo
+
     - name: "git clone repo"
       git:
           repo: https://github.com/rbisewski/devops_practice_upfeat
@@ -12,5 +26,14 @@
           dest: /git/devops_practice_upfeat
           accept_hostkey: yes
 
-    - name: "tear down the existing setup, rebuild docker images, then docker-compose up"
-      command: bash /git/devops_practice_upfeat/ansible/build-and-deploy.sh
+    - name: "tear down the existing docker-compose"
+      command: docker-compose -f /git/devops_practice_upfeat/docker-compose.yml down
+
+    - name: "delete the previous docker image"
+      command: docker rmi upfeat-devops-app:latest
+
+    - name: "rebuild docker image"
+      command: docker build -t upfeat-devops-app:latest /git/devops_practice_upfeat/app
+
+    - name: "docker-compose up -d to redeploy"
+      command: docker-compose -f /git/devops_practice_upfeat/docker-compose.yml up -d
