@@ -1,5 +1,5 @@
 ---
-- name: "Deploy <Operations Hello World> to the GCP VM."
+- name: "Deploy <Operations Hello World> to the VM that runs upfeat.ibiscybernetics.com."
   hosts: upfeat.ibiscybernetics.com
   remote_user: rbisewski
 

@@ -47,6 +47,7 @@ export default {
         email: this.email,
         password: this.password,
       };
+      let registrationSuccessful = true;
 
       if (this.password.length < 8) {
             this.$notify({
@@ -77,7 +78,18 @@ export default {
                 type: 'error',
                 title: 'Error',
                 text: err
-        }));
+            })
+        );
+
+      if (registrationSuccessful === true) {
+            this.$notify({
+                group: 'messages',
+                type: 'important',
+                title: 'Success',
+                text: 'You have successfully registered. Now go ahead and click "Login" to login to your account.',
+                duration: 6000
+            });
+      }
     }
   }
 };
