@@ -37,3 +37,9 @@
 
     - name: "docker-compose up -d to redeploy"
       command: docker-compose -f /git/devops_practice_upfeat/docker-compose.yml up -d
+
+    - name: "ensure cron job with hourly backups is installed"
+      cron:
+        name: "hourly_users_database_backup_to_github"
+        special_time: "hourly"
+        job: "/git/devops_practice_upfeat/ansible/hourly_backups.sh"
