@@ -33,7 +33,7 @@
       command: docker rmi upfeat-devops-app:latest
 
     - name: "rebuild docker image"
-      command: docker build -t upfeat-devops-app:latest /git/devops_practice_upfeat/app
+      command: docker build -t upfeat-devops-app:latest -f /git/devops_practice_upfeat/app/Dockerfile.production /git/devops_practice_upfeat/app
 
     - name: "docker-compose up -d to redeploy"
       command: docker-compose -f /git/devops_practice_upfeat/docker-compose.yml up -d

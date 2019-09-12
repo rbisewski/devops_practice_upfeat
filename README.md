@@ -4,7 +4,7 @@ Operations Hello World.
 
 Website: upfeat.ibiscybernetics.com
 
-### Building the docker images
+### Building the docker images locally and using them
 
 To build the docker images:
 
@@ -12,12 +12,13 @@ To build the docker images:
 git clone https://github.com/rbisewski/devops_practice_upfeat
 cd devops_practice_upfeat
 docker build -t upfeat-devops-app:latest ./app
+docker-compose up -d
 ```
 
 ### Setting up the images
 
-Install docker compose and then type:
+Deploy the docker instances to the GCP cloud VM:
 
 ```bash
-docker-compose up -d
+ansible-playbook -K ansible/deploy-operations-hello-world.yml
 ```
