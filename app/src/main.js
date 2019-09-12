@@ -5,11 +5,13 @@ import store from './store'
 import Axios from 'axios'
 import Notifications from 'vue-notification'
 
-const isProduction = false;
 Vue.hostname = 'localhost:3000';
 Vue.protocol = 'http://';
 
-// the below line gets replaced during the docker build process
+const isProduction = false;
+
+// the above line gets replaced during the docker build process during
+// production; i.e. "isProduction = false" becomes "isProduction = true"
 if (isProduction === true) {
     Vue.hostname = "upfeat-backend.ibiscybernetics.com"
     Vue.protocol = 'https://';
