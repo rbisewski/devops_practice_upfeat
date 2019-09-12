@@ -8,6 +8,7 @@
         <router-link to="/login">Login</router-link>
         </span>
     </div>
+    <notifications group="messages" />
     <router-view/>
   </div>
 </template>

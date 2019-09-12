@@ -47,10 +47,37 @@ export default {
         email: this.email,
         password: this.password,
       };
+
+      if (this.password.length < 8) {
+            this.$notify({
+                group: 'messages',
+                type: 'error',
+                title: 'Error',
+                text: 'Password should be at least 8 characters.'
+                });
+            return;
+      }
+
+      if (this.password !== this.password_confirmation) {
+            this.$notify({
+                group: 'messages',
+                type: 'error',
+                title: 'Error',
+                text: 'Passwords do not match.'
+                });
+            return;
+      }
+
       this.$store
         .dispatch("register", data)
         .then(() => this.$router.push("/"))
-        .catch(err => err);
+        .catch(err =>
+            this.$notify({
+                group: 'messages',
+                type: 'error',
+                title: 'Error',
+                text: err
+        }));
     }
   }
 };

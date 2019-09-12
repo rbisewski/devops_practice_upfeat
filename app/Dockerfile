@@ -2,6 +2,7 @@ FROM archlinux/base:latest
 RUN pacman -Syyuv --noconfirm && pacman --noconfirm -S wget procps nginx make gcc sqlcipher nodejs yarn npm python2 python grep
 RUN mkdir /app
 ADD . /app/
+RUN sed -i 's/ENCRYPTION_KEY/77916DDD37EA00AAE49BF86097E73BD347D7C032D5089F949D463A2690525541/g' /app/server/db.js
 RUN cd /app/ && yarn
 RUN cd /app/ && yarn build
 RUN rm -rf /usr/share/nginx/html

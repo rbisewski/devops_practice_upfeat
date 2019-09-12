@@ -31,7 +31,14 @@ export default {
       this.$store
         .dispatch("login", { email, password })
         .then(() => this.$router.push("/"))
-        .catch(err => err);
+        .catch(err =>
+            this.$notify({
+                group: 'messages',
+                type: 'error',
+                title: 'Error',
+                data: {err},
+                text: 'Incorrect login credentials.'
+        }));
     }
   }
 };

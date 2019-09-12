@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Axios from 'axios'
+import Notifications from 'vue-notification'
 
+Vue.use(Notifications)
 
 Vue.prototype.$http = Axios;
 
