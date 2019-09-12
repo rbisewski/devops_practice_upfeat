@@ -42,4 +42,4 @@
       cron:
         name: "hourly_users_database_backup_to_github"
         special_time: "hourly"
-        job: "/git/devops_practice_upfeat/ansible/hourly_backups.sh"
+        job: "bash /git/devops_practice_upfeat/ansible/hourly_backups.sh &> /home/rbisewski/backup.log"
