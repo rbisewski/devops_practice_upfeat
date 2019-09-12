@@ -78,7 +78,7 @@ export default {
                 type: 'error',
                 title: 'Error',
                 text: err
-            })
+            }), registrationSuccessful = false
         );
 
       if (registrationSuccessful === true) {
