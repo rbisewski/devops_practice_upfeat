@@ -21,7 +21,7 @@
 
     - name: "git clone repo"
       git:
-          repo: https://github.com/rbisewski/devops_practice_upfeat
+          repo: git@github.com:rbisewski/devops_practice_upfeat.git
           version: master
           dest: /git/devops_practice_upfeat
           accept_hostkey: yes
